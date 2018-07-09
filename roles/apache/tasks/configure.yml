@@ -1,0 +1,7 @@
+---
+- name: Copy httpd configuration file
+  copy: src=/home/ec2-user/Ansible/roles/apache/files/httpd.conf.original dest=/etc/httpd/conf/httpd.conf
+- name: Copy index.html file
+  copy: src=/home/ec2-user/Ansible/roles/apache/files/index.html dest=/var/www/html
+  notify:
+  - restart apache
